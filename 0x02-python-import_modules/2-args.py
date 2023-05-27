@@ -12,7 +12,7 @@ if __name__ == "__main__":
         # Print a new line
         print("arguments.")
     elif (num_args == 1):
-        print(" argument:")
+        print("argument:")
         print(f"{num_args}: {sys.argv[1]}")
 
     elif (num_args > 1):
