@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+"""Simple square class"""
+
+
 class Square:
     """ This is a simple square class"""
 
