@@ -11,5 +11,6 @@ if __name__ == "__main__":
     try:
         args_list = load_from_json_file("add_items.json")
     except FileNotFoundError:
-        args_list = list(argv[1:])
+        args_list = []
+        args_list.extend(argv[1:])
     save_to_json_file(args_list, "add_item.json")
