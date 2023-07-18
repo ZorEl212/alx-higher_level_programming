@@ -48,8 +48,21 @@ It should rasie the exception error for a.
 
 Check for float numbers
     >>> add_integer(20.6, 55.6)
-    75
+    76
 
 check for big numbers
     >>> add_integer(199999999999999999999999999999999999999999, 1)
     200000000000000000000000000000000000000000
+
+check for inf 'a' value
+    >>> add_integer(float('inf')) #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    ...
+    OverflowError
+
+check for NaN 'a' value
+    >>> add_integer(float('nan')) #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+    ...
+    ValueError
+
