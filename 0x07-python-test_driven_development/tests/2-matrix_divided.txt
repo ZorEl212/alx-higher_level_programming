@@ -1,0 +1,31 @@
+# A a doctest for function matrix_divided()
+
+"""
+#Import the module
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+#Test some normal cases
+>>> matrix_divided([[1, 2, 3],[4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+>>> matrix_divided([[1, 2, 3], [4, 5]], 3)
+Traceback (most recent call last):
+  ...
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix_divided([[1, 2, 3], [4, 5, "6"]], 3)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+#Check for with non number value for div
+>>> matrix_divided([[1, 2, 3], [4, 5, "6"]], "3")
+Traceback (most recent call last):
+  ...
+TypeError: div must be a number
+
+#Check for zero division error
+>>> matrix_divided([[1, 2, 3], [4, 5, "6"]], 0)
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero
