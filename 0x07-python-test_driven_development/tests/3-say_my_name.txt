@@ -1,0 +1,24 @@
+#Test for a function say_my_name(first_name, last_name="")
+
+"""
+#import the module
+
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+#Test Normal cases
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+>>> say_my_name("Yeab")
+My name is Yeab 
+
+>>> say_my_name("Yeab", 333)
+Traceback (most recent call last):
+  ...
+ValueError: last_name must be a string
+
+>>> say_my_name(444, "Desalegn")
+Traceback (most recent call last):
+  ...
+ValueError: first_name must be a string
