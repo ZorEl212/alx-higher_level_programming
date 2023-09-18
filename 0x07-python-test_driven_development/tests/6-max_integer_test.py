@@ -30,3 +30,7 @@ class Test_cases(unittest.TestCase):
         result = max_integer([float('inf'), 0xffffffffffffffff])
         self.assertEqual(result, float('inf'))
         self.assertNotEqual(result, 0xffffffffffffffff)
+
+    def test_empty_list(self):
+        self.assertIsNone(max_integer([]))
+    
