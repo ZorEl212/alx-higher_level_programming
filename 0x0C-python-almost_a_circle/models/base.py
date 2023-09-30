@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for base class"""
 import json
+import csv
 
 
 class Base:
@@ -75,3 +76,51 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Write the CSV serialization of a list of objects to a file.
+
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
+        filename = f"{cls.__name__}.csv"
+        fieldnames = cls.get_fieldnames()
+
+        with open(filename, "w", newline="") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            if list_objs:
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+            else:
+                writer.writeheader()
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a CSV file.
+        """
+        filename = f"{cls.__name__}.csv"
+        fieldnames = cls.get_fieldnames()
+
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                if fieldnames[1] == "size":
+                    list_dicts = [dict([k, int(v)]
+                                       for k, v in d.items()) for d
+                                  in list_dicts]
+                else:
+                    list_dicts = [dict([k, int(v)]
+                                       for k, v in d.items()) for d
+                                  in list_dicts][1:]
+                return [cls.create(**d) for d in list_dicts]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def get_fieldnames(cls):
+        """Get the field names based on the class type."""
+        if cls.__name__ == "Rectangle":
+            return ["id", "width", "height", "x", "y"]
+        else:
+            return ["id", "size", "x", "y"]
