@@ -38,6 +38,15 @@ class Square(Rectangle):
             if k in arg_names and v is not None:
                 setattr(self, k, v)
 
+    def to_dictionary(self):
+        """Return the dictionary representation of the Square."""
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
+
     def __str__(self):
         return (f'[Square] ({self.id}) {self.x}/{self.y} - '
                 f'{self.size}')
