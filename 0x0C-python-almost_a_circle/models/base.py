@@ -31,3 +31,15 @@ class Base:
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Write the JSON serialization of a list of objects to a file.
+        """
+        fname = cls.__name__ + ".json"
+        with open(fname, "w") as jsonfile:
+            if list_objs is None:
+                jsonfile.write("[]")
+            else:
+                dicts = [o.to_dictionary() for o in list_objs]
+                jsonfile.write(Base.to_json_string(dicts))
