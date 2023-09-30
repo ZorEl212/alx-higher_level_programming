@@ -77,6 +77,7 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
+        """Print the rectangle with '#'"""
         if self.width == 0 or self.height == 0:
             return ""
         s = (self.width * "#" + "\n") * (self.height - 1) + (self.width * "#")
