@@ -10,7 +10,7 @@ fi
 url=$1
 
 # Use curl to send a request and measure the size of the response body in bytes
-size=$(curl -sI $url | grep -i content-length | awk '{print $2}' | tr -d '\r\n')
+size=$(curl -sI "$url" | grep -i content-length | awk '{print $2}' | tr -d '\r\n')
 
 # Check if the content-length header is present in the response
 if [ -z "$size" ]; then
