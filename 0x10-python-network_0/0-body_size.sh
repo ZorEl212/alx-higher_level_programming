@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Check if a URL is provided
 if [ -z "$1" ]; then
     echo "Usage: $0 <URL>"
