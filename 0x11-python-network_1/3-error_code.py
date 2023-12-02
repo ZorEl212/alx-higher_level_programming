@@ -12,7 +12,7 @@ def error_msg():
             html = response.read()
             print(html.decode('utf-8'))
     except urllib.error.HTTPError as e:
-        print(f"Error Code: {e.code}")
+        print(f"Error code: {e.code}")
 
 
 if __name__ == "__main__":
