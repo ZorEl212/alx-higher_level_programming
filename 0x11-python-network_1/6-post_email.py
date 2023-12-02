@@ -8,7 +8,7 @@ def send_email():
     url = sys.argv[1]
     email = sys.argv[2]
     values = {'email': email}
-    res = requests.post(url, params=values)
+    res = requests.post(url, data=values)
     print(res.text)
 
 
