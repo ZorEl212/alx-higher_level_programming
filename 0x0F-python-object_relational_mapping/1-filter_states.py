@@ -15,7 +15,8 @@ def list_states():
     conn = MySQLdb.connect(host="localhost", port=3306, user=username,
                            password=passwd, database=db)
     cursor = conn.cursor()
-    sql = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id"
+    sql = """SELECT * FROM states WHERE name COLLATE
+    utf8mb4_bin LIKE 'N%' ORDER BY states.id"""
     cursor.execute(sql)
     rows = cursor.fetchall()
     for row in rows:
