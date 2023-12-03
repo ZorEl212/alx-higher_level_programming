@@ -16,8 +16,8 @@ def list_states():
     conn = MySQLdb.connect(host="localhost", port=3306, user=username,
                            password=passwd, database=db)
     cursor = conn.cursor()
-    sql = """SELECT * FROM states WHERE name = '{}'
-    ORDER BY states.id""".format(name)
+    sql = """SELECT * FROM states WHERE name COLLATE utf8mb4_bin
+    = '{}' ORDER BY states.id""".format(name)
     cursor.execute(sql)
     rows = cursor.fetchall()
     for row in rows:
