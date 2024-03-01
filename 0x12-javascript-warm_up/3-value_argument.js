@@ -7,10 +7,11 @@ function getLength (args) {
   }
   return size;
 }
+
 const args = process.argv;
 if (getLength(args) < 3) {
   console.log('No argument');
+  return;
 }
-for (let i = 2; i < getLength(args); i++) {
-  console.log(args[i]);
-}
+console.log(args[2]);
+
