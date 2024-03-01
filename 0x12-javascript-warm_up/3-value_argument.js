@@ -11,7 +11,6 @@ function getLength (args) {
 const args = process.argv;
 if (getLength(args) < 3) {
   console.log('No argument');
-  return;
+} else {
+  console.log(args[2]);
 }
-console.log(args[2]);
-
