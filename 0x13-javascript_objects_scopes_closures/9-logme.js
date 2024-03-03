@@ -1,5 +1,6 @@
 #!/usr/bin/node
+let count = 0;
 exports.logMe = function (item) {
-  this.calls = (this.calls || 0) + 1;
-  console.log(this.calls + ': ' + item);
+  console.log(count + ': ' + item);
+  count++;
 };
